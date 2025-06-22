@@ -70,13 +70,17 @@
       <input type="text" name="name" placeholder="Your Full Name" required />
       <input type="email" name="email" placeholder="Email Address" required />
       <input type="tel" name="phone" placeholder="Phone Number" required />
-      <select name="service" required>
+      <select name="service" id="service-select" required>
         <option value="">Select a Service</option>
         <option>Cleaning</option>
         <option>Laundry</option>
         <option>Kitchen Help</option>
-        <option>Other</option>
+        <option value="Other">Other</option>
       </select>
+
+        <!-- Hidden field that appears if 'Other' is selected -->
+      <input type="text" id="other-service" name="other_service" placeholder="Please specify other service" style="display: none;" />
+
       <input type="date" name="date" required />
       <textarea name="address" placeholder="Service Address" rows="4" required></textarea>
       <button type="submit">Submit Request</button>
@@ -86,6 +90,20 @@
   <footer>
     <p>&copy; 2025 Helpr. All rights reserved.</p>
   </footer>
+  <script>
+  const serviceSelect = document.getElementById('service-select');
+  const otherInput = document.getElementById('other-service');
+
+  serviceSelect.addEventListener('change', () => {
+    if (serviceSelect.value === 'Other') {
+      otherInput.style.display = 'block';
+      otherInput.required = true;
+    } else {
+      otherInput.style.display = 'none';
+      otherInput.required = false;
+    }
+  });
+</script>
 
 </body>
 </html>

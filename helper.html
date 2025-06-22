@@ -70,13 +70,16 @@
       <input type="text" name="name" placeholder="Your Full Name" required />
       <input type="email" name="email" placeholder="Email Address" required />
       <input type="tel" name="phone" placeholder="Phone Number" required />
-      <select name="skills" required>
-        <option value="">Select Your Skill</option>
-        <option>Cleaning</option>
-        <option>Laundry</option>
-        <option>Kitchen Help</option>
-        <option>Other</option>
-      </select>
+      <select name="skills" id="skills-select" required>
+  <option value="">Select Your Skill</option>
+  <option>Cleaning</option>
+  <option>Laundry</option>
+  <option>Kitchen Help</option>
+  <option value="Other">Other</option>
+</select>
+
+<input type="text" id="other-skill" name="other_skill" placeholder="Please specify other skill" style="display: none;" />
+
       <input type="text" name="location" placeholder="Your City or Area" required />
       <textarea name="notes" placeholder="Experience or notes (optional)" rows="4"></textarea>
       <button type="submit">Submit Application</button>
@@ -86,6 +89,20 @@
   <footer>
     <p>&copy; 2025 Helpr. All rights reserved.</p>
   </footer>
+  <script>
+  const skillSelect = document.getElementById('skills-select');
+  const otherSkillInput = document.getElementById('other-skill');
+
+  skillSelect.addEventListener('change', () => {
+    if (skillSelect.value === 'Other') {
+      otherSkillInput.style.display = 'block';
+      otherSkillInput.required = true;
+    } else {
+      otherSkillInput.style.display = 'none';
+      otherSkillInput.required = false;
+    }
+  });
+</script>
 
 </body>
 </html>
