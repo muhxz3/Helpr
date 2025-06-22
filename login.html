@@ -86,9 +86,14 @@
 
   <div class="login-container">
     <h2>Login to Helpr</h2>
-    <form action="index.html" method="POST">
+    <form id="login-form">
       <input type="email" name="email" placeholder="Email" required />
       <input type="password" name="password" placeholder="Password" required />
+      <select id="role" required>
+  <option value="">Login as...</option>
+  <option value="admin">Admin</option>
+  <option value="helper">Helper</option>
+</select>
       <div class="remember">
         <input type="checkbox" id="remember" />
         <label for="remember">Remember me</label>
@@ -103,6 +108,24 @@
   <footer>
     <p>&copy; 2025 Helpr. All rights reserved.</p>
   </footer>
+  <script>
+  const form = document.getElementById('login-form');
+  const roleSelect = document.getElementById('role');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent actual form submission
+
+    const role = roleSelect.value;
+
+    if (role === 'admin') {
+      window.location.href = 'admin-dashboard.html';
+    } else if (role === 'helper') {
+      window.location.href = 'helper-dashboard.html';
+    } else {
+      alert('Please select a role to log in.');
+    }
+  });
+</script>
 
 </body>
 </html>
