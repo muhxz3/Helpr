@@ -18,6 +18,7 @@
         <li><a href="book.html">Book a Service</a></li>
         <li><a href="helper.html">Become a Helper</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button>
       </ul>
     </nav>
   </header>
@@ -91,6 +92,14 @@
   <footer id="contact">
     <p>&copy; 2025 Helpr. All rights reserved.</p>
   </footer>
+<script>
+  const toggleBtn = document.getElementById('theme-toggle');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    toggleBtn.textContent =
+      document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
+  });
+</script>
 
 </body>
 </html>
