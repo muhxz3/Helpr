@@ -126,6 +126,45 @@
     }
   });
 </script>
+<!-- Keep your existing login.html structure -->
+<!-- Replace the form section with this: -->
+
+<form id="login-form">
+  <input type="email" id="login-email" placeholder="Email" required />
+  <input type="password" id="login-password" placeholder="Password" required />
+  <button type="submit">Login</button>
+</form>
+
+<script>
+  const loginForm = document.getElementById('login-form');
+
+  loginForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+
+    const userData = JSON.parse(localStorage.getItem(email));
+
+    if (!userData) {
+      alert("User not found!");
+      return;
+    }
+
+    if (userData.password !== password) {
+      alert("Incorrect password!");
+      return;
+    }
+
+    alert(`Welcome back, ${userData.name}!`);
+    if (userData.role === "admin") {
+      window.location.href = "admin-dashboard.html";
+    } else if (userData.role === "helper") {
+      window.location.href = "helper-dashboard.html";
+    } else {
+      window.location.href = "index.html";
+    }
+  });
+</script>
 
 </body>
 </html>
