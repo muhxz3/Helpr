@@ -217,32 +217,50 @@ footer {
 }
 
 /* Dark Mode Styles */
+/* Dark Mode Base */
 body.dark-mode {
   background-color: #121212;
   color: #e0e0e0;
 }
 
+/* Navbar & Footer */
 body.dark-mode header,
 body.dark-mode footer {
   background-color: #1e1e1e;
+  color: #e0e0e0;
 }
 
+/* Cards and Boxes */
 body.dark-mode .why-card,
 body.dark-mode .testimonial-card,
 body.dark-mode .card {
-  background-color: #2a2a2a;
+  background-color: #2c2c2c;
   color: #f0f0f0;
+  border: 1px solid #444;
 }
 
-body.dark-mode .navbar,
-body.dark-mode .contact-section {
-  background-color: #1e1e1e;
-}
-
+/* Inputs, Selects, Textareas */
 body.dark-mode input,
 body.dark-mode textarea,
 body.dark-mode select {
-  background-color: #333;
-  color: #fff;
-  border-color: #555;
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+  border: 1px solid #555;
 }
+
+/* Links */
+body.dark-mode a {
+  color: #80dfff;
+}
+
+/* Optional: Table headers in dashboard */
+body.dark-mode th {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark-mode td {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+}
+
